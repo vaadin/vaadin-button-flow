@@ -14,7 +14,8 @@ import com.vaadin.server.VaadinServlet;
 
 public class TServer {
 
-    private String webAppPath = "webapp";
+    // contains the client engine copied by maven-dependency-plugin
+    private String webAppPath = "target/dependency/META-INF/resources";
 
     public TServer(String webAppPath) {
         super();
