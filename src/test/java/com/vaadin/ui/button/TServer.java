@@ -14,7 +14,7 @@ import com.vaadin.server.VaadinServlet;
 
 public class TServer {
 
-    private String webAppPath = "target/vaadin-button-flow-0.0.1-SNAPSHOT";
+    private String webAppPath = "webapp";
 
     public TServer(String webAppPath) {
         super();
