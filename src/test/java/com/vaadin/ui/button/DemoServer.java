@@ -44,8 +44,14 @@ public class DemoServer {
     }
 
     // contains the client engine copied by maven-dependency-plugin
-    private String webAppPath = "target/dependency/META-INF/resources";
+    private static final String WEB_APP_PATH = "target/dependency/META-INF/resources";
 
+    /**
+     * Starts a web server to the port defined by {@link #getPort()}. It serves
+     * the test UIs annotated with <code>@Route</code>.
+     * 
+     * @return the server object
+     */
     public Server startServer() throws Exception {
 
         Server server = new Server();
@@ -60,7 +66,7 @@ public class DemoServer {
         ServletHolder servletHolder = new ServletHolder(vaadinServlet);
         context.addServlet(servletHolder, "/");
 
-        File file = new File(webAppPath);
+        File file = new File(WEB_APP_PATH);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -83,16 +89,27 @@ public class DemoServer {
         return server;
     }
 
+    /**
+     * Creates and returns the {@link VaadinServlet} to be served by this
+     * server.
+     * 
+     * @return the servlet to be served by this server
+     */
     protected VaadinServlet createServlet() {
         return new DemoServlet();
     }
 
+    /**
+     * Gets the port number to which this server will be connected.
+     * 
+     * @return the port number to which this server will be connected.
+     */
     protected int getPort() {
         return 9998;
     }
 
     /**
-     * Hook for additional configuration.
+     * Hook for additional configuration to perform before starting the server.
      *
      * @param context
      *            the context
