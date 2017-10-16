@@ -20,6 +20,10 @@ import javax.servlet.annotation.WebServlet;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.server.VaadinServletConfiguration;
 
+/**
+ * @author Vaadin Ltd
+ *
+ */
 @WebServlet(urlPatterns = "/*", name = "DemoServlet", asyncSupported = true)
 @VaadinServletConfiguration(usingNewRouting = true, productionMode = false)
 public class DemoServlet extends VaadinServlet {
