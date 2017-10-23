@@ -23,8 +23,8 @@ import com.vaadin.ui.common.HasClickListeners.ClickEvent;
 import com.vaadin.ui.common.HtmlImport;
 import com.vaadin.ui.html.Div;
 import com.vaadin.ui.html.Image;
-//import com.vaadin.ui.icon.Icon;
-//import com.vaadin.ui.icon.VaadinIcons;
+import com.vaadin.ui.icon.Icon;
+import com.vaadin.ui.icon.VaadinIcons;
 
 /**
  * View for {@link Button} demo.
@@ -66,27 +66,26 @@ public class ButtonView extends DemoView {
     }
 
     private void createButtonsWithIcons() {
-        // // begin-source-example
-        // // source-example-heading: Buttons with icons
-        // Button leftButton = new Button("Left",
-        // new Icon(VaadinIcons.ARROW_LEFT));
-        //
-        // Button rightButton = new Button("Right",
-        // new Icon(VaadinIcons.ARROW_RIGHT));
-        // rightButton.setIconAfterText(true);
-        //
-        // Button thumbsUpButton = new Button(new Icon(VaadinIcons.THUMBS_UP));
-        // // end-source-example
-        //
-        // leftButton.addClickListener(this::showButtonClickedMessage);
-        // rightButton.addClickListener(this::showButtonClickedMessage);
-        // thumbsUpButton.addClickListener(this::showButtonClickedMessage);
-        //
-        // addCard("Buttons with icons", leftButton, rightButton,
-        // thumbsUpButton);
-        // leftButton.setId("left-icon-button");
-        // rightButton.setId("right-icon-button");
-        // thumbsUpButton.setId("thumb-icon-button");
+        // begin-source-example
+        // source-example-heading: Buttons with icons
+        Button leftButton = new Button("Left",
+                new Icon(VaadinIcons.ARROW_LEFT));
+
+        Button rightButton = new Button("Right",
+                new Icon(VaadinIcons.ARROW_RIGHT));
+        rightButton.setIconAfterText(true);
+
+        Button thumbsUpButton = new Button(new Icon(VaadinIcons.THUMBS_UP));
+        // end-source-example
+
+        leftButton.addClickListener(this::showButtonClickedMessage);
+        rightButton.addClickListener(this::showButtonClickedMessage);
+        thumbsUpButton.addClickListener(this::showButtonClickedMessage);
+
+        addCard("Buttons with icons", leftButton, rightButton, thumbsUpButton);
+        leftButton.setId("left-icon-button");
+        rightButton.setId("right-icon-button");
+        thumbsUpButton.setId("thumb-icon-button");
     }
 
     private void createImageButtonWithAutofocus() {

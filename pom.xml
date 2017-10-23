@@ -21,9 +21,16 @@
     </properties>
 
     <repositories>
+<!--         <repository> -->
+<!--             <id>flow-internal-release</id> -->
+<!--             <url>https://repo.vaadin.com/nexus/content/repositories/flow</url> -->
+<!--         </repository> -->
         <repository>
-            <id>flow-internal-release</id>
-            <url>https://repo.vaadin.com/nexus/content/repositories/flow</url>
+            <id>flow-internal-snapshots</id>
+            <url>https://repo.vaadin.com/nexus/content/repositories/flow-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>webjars</id>
@@ -47,6 +54,16 @@
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>vaadin-button</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-components</artifactId>
+            <version>${flow.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>vaadin-icons</artifactId>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -81,10 +98,10 @@
                                 <resource>
                                     <directory>src/test/java</directory>
                                 </resource>
-<!--                                 <resource> -->
-<!--                                     <directory>src/main/webapp</directory> -->
-<!--                                     <targetPath>META-INF/resources</targetPath> -->
-<!--                                 </resource> -->
+                                <resource>
+                                    <directory>src/main/webapp</directory>
+                                    <targetPath>META-INF/resources</targetPath>
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>
