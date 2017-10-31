@@ -5,3 +5,7 @@ target/
 .project
 .settings
 .classpath
+
+# IntelliJ IDEA files
+.idea/
+vaadin-button-flow.iml
