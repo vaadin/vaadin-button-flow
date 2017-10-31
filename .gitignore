@@ -5,3 +5,7 @@ target/
 .project
 .settings
 .classpath
+
+# Selenium driver folders
+driver_zips
+driver
