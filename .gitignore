@@ -9,3 +9,8 @@ target/
 # Selenium driver folders
 driver_zips
 driver
+
+# IntelliJ IDEA files
+.idea/
+vaadin-button-flow.iml
+
