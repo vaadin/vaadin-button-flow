@@ -7,6 +7,8 @@ target/
 .classpath
 
 # Selenium driver folders
+selenium_standalone
+selenium_standalone_zips
 error-screenshots
 reference-screenshots
 driver_zips
