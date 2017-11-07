@@ -26,7 +26,6 @@ import com.vaadin.testbench.By;
  * Integration tests for the {@link ButtonView}.
  */
 public class ButtonIT extends ComponentDemoTest {
-
     @Test
     public void clickOnDefaultButton_textIsDisplayed() {
         WebElement button = layout.findElement(By.id("default-button"));

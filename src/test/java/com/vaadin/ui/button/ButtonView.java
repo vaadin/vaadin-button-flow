@@ -31,7 +31,6 @@ import com.vaadin.ui.icon.VaadinIcons;
 @Route("")
 @HtmlImport("bower_components/vaadin-valo-theme/vaadin-button.html")
 public class ButtonView extends DemoView {
-
     private Div message;
 
     @Override
