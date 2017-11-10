@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>com.vaadin</groupId>
-        <artifactId>flow-component</artifactId>
+        <artifactId>flow-component-base</artifactId>
         <version>0.0.1</version>
     </parent>
 
@@ -31,9 +31,8 @@
     </repositories>
     
     <scm>
-    <connection>scm:https:https://github.com/vaadin/vaadin-button-flow.git</connection>
-        <developerConnection>scm:git:git@github.com:vaadin/vaadin-button-flow.git
-        </developerConnection>
+        <connection>scm:https:https://github.com/vaadin/vaadin-button-flow.git</connection>
+        <developerConnection>scm:git:git@github.com:vaadin/vaadin-button-flow.git</developerConnection>
         <url>https://github.com/vaadin/vaadin-button-flow/</url>
     </scm>
 
