@@ -11,7 +11,7 @@
 
     <artifactId>vaadin-button-flow</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+   
     <properties>
         <flow.version>1.0.0.alpha9</flow.version>
     </properties>
