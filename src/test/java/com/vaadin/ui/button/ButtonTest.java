@@ -68,7 +68,7 @@ public class ButtonTest {
     @Test
     public void textIconAndEventCtor() {
         Icon icon = new Icon();
-        button = new Button("foo", icon, null);
+        button = new Button("foo", icon, event -> {});
         Assert.assertEquals("foo", button.getText());
         Assert.assertEquals(icon, button.getIcon());
     }
