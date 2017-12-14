@@ -13,12 +13,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.vaadin.ui.button.demo;
+package com.vaadin.flow.component.button.demo;
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.demo.DemoView;
 import com.vaadin.router.Route;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.button.Button;
 import com.vaadin.ui.common.HasClickListeners.ClickEvent;
 import com.vaadin.ui.common.HtmlImport;
 import com.vaadin.ui.html.Div;
