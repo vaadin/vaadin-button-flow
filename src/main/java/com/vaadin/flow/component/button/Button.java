@@ -19,7 +19,6 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.button.GeneratedVaadinButton;
 import com.vaadin.ui.common.HasSize;
 import com.vaadin.ui.event.ComponentEventListener;
 
