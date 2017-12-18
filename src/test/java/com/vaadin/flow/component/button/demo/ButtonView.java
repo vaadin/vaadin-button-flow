@@ -21,10 +21,10 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.demo.DemoView;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcons;
+import com.vaadin.flow.demo.DemoView;
+import com.vaadin.flow.router.Route;
 
 /**
  * View for {@link Button} demo.

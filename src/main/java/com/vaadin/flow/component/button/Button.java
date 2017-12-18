@@ -15,13 +15,14 @@
  */
 package com.vaadin.flow.component.button;
 
+import javax.swing.Icon;
+
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.dom.ElementFactory;
-import com.vaadin.ui.icon.Icon;
 
 /**
  * Server-side component for the <code>vaadin-button</code> element.

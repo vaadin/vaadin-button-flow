@@ -22,8 +22,8 @@ import org.junit.Test;
 
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.dom.Element;
-import com.vaadin.ui.icon.Icon;
 
 public class ButtonTest {
 
