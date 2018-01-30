@@ -319,7 +319,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @param components
      *            the components to add
      */
-    public void add(Component... components) {
+    private void add(Component... components) {
         assert components != null;
         for (Component component : components) {
             assert component != null;
@@ -333,10 +333,11 @@ public class Button extends GeneratedVaadinButton<Button>
      * @param autofocus
      *            the boolean value to set
      */
+    @Override
     public void setAutofocus(boolean autofocus) {
         super.setAutofocus(autofocus);
     }
-    
+
     /**
      * Get the state for the auto-focus property of the button.
      * <p>
@@ -345,8 +346,8 @@ public class Button extends GeneratedVaadinButton<Button>
      * 
      * @return the {@code autofocus} property from the button
      */
-    public void isAutofocus() {
-        super.isAutofocusBoolean();
+    public boolean isAutofocus() {
+        return isAutofocusBoolean();
     }
 
     /**
@@ -356,11 +357,7 @@ public class Button extends GeneratedVaadinButton<Button>
      *            the boolean value to set
      */
     public void setEnabled(boolean enabled) {
-        if (Boolean.FALSE.equals(enabled)) {
-            super.setDisabled(Boolean.TRUE);
-        } else {
-            super.setDisabled(Boolean.FALSE);
-        }
+        setDisabled(!enabled);
     }
 
     /**
@@ -373,8 +370,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @return {@code true} if the button is enabled, {@code false} otherwise
      */
     public boolean isEnabled() {
-        return (Boolean.TRUE.equals(super.isDisabledBoolean())) ? Boolean.FALSE
-                : Boolean.TRUE;
+        return !isDisabledBoolean();
     }
 
     private void wrapTextInSpan() {
