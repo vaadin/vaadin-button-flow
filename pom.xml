@@ -63,11 +63,6 @@
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.webjars.bowergithub.vaadin</groupId>
-            <artifactId>vaadin-icons</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 </project>
 
