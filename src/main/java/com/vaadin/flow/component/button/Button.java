@@ -17,6 +17,7 @@ package com.vaadin.flow.component.button;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.HasEnabled;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.dom.Element;
@@ -28,7 +29,7 @@ import com.vaadin.flow.dom.ElementFactory;
  * @author Vaadin Ltd
  */
 public class Button extends GeneratedVaadinButton<Button>
-        implements HasSize {
+        implements HasSize, HasEnabled {
 
     private static final String THEME_ATTRIBUTE = "theme";
 
