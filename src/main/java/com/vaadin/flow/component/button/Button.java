@@ -351,29 +351,6 @@ public class Button extends GeneratedVaadinButton<Button>
         return isAutofocusBoolean();
     }
 
-    /**
-     * Enables or disables this button.
-     * 
-     * @param enabled
-     *            the boolean value to set
-     */
-    public void setEnabled(boolean enabled) {
-        setDisabled(!enabled);
-    }
-
-    /**
-     * Determines whether this button is enabled
-     * <p>
-     * This property is not synchronized automatically from the client side, so
-     * the returned value may not be the same as in client side.
-     * </p>
-     * 
-     * @return {@code true} if the button is enabled, {@code false} otherwise
-     */
-    public boolean isEnabled() {
-        return !isDisabledBoolean();
-    }
-
     private void wrapTextInSpan() {
         String text = getText();
 
