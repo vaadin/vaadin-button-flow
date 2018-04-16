@@ -139,13 +139,13 @@ public class ButtonView extends DemoView {
 
         addCard("Disabled button", button);
         button.addClickListener(evt -> message.setText("Button "
-                + ((Button) evt.getSource()).getText()
+                + evt.getSource().getText()
                 + " was clicked, but the button is disabled and this shouldn't happen!"));
         button.setId("disabled-button");
     }
 
-    private void showButtonClickedMessage(ClickEvent evt) {
-        Button source = (Button) evt.getSource();
+    private void showButtonClickedMessage(ClickEvent<Button> evt) {
+        Button source = evt.getSource();
         source.getParent()
                 .ifPresent(parent -> parent.getElement().insertChild(
                         parent.getElement().getChildCount() - 2,

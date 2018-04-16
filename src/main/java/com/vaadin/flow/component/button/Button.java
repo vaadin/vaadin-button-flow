@@ -95,7 +95,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @see #addClickListener(ComponentEventListener)
      */
     public Button(String text,
-            ComponentEventListener<ClickEvent> clickListener) {
+            ComponentEventListener<ClickEvent<Button>> clickListener) {
         setText(text);
         addClickListener(clickListener);
     }
@@ -111,7 +111,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @see #addClickListener(ComponentEventListener)
      */
     public Button(Component icon,
-            ComponentEventListener<ClickEvent> clickListener) {
+            ComponentEventListener<ClickEvent<Button>> clickListener) {
         setIcon(icon);
         addClickListener(clickListener);
     }
@@ -130,7 +130,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @see #addClickListener(ComponentEventListener)
      */
     public Button(String text, Component icon,
-            ComponentEventListener<ClickEvent> clickListener) {
+            ComponentEventListener<ClickEvent<Button>> clickListener) {
         setIcon(icon);
         setText(text);
         addClickListener(clickListener);
