@@ -15,6 +15,7 @@
  */
 package com.vaadin.flow.component.button;
 
+import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HasEnabled;
@@ -94,7 +95,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @see #addClickListener(ComponentEventListener)
      */
     public Button(String text,
-            ComponentEventListener<ClickEvent<Button>> clickListener) {
+            ComponentEventListener<ClickEvent> clickListener) {
         setText(text);
         addClickListener(clickListener);
     }
@@ -110,7 +111,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @see #addClickListener(ComponentEventListener)
      */
     public Button(Component icon,
-            ComponentEventListener<ClickEvent<Button>> clickListener) {
+            ComponentEventListener<ClickEvent> clickListener) {
         setIcon(icon);
         addClickListener(clickListener);
     }
@@ -129,7 +130,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @see #addClickListener(ComponentEventListener)
      */
     public Button(String text, Component icon,
-            ComponentEventListener<ClickEvent<Button>> clickListener) {
+            ComponentEventListener<ClickEvent> clickListener) {
         setIcon(icon);
         setText(text);
         addClickListener(clickListener);

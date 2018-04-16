@@ -17,9 +17,9 @@ package com.vaadin.flow.component.button;
 
 import javax.annotation.Generated;
 
+import com.vaadin.flow.component.ClickNotifier;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Focusable;
-import com.vaadin.flow.component.HasClickListeners;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.HasText;
 import com.vaadin.flow.component.Tag;
@@ -103,7 +103,7 @@ import com.vaadin.flow.dom.Element;
 @HtmlImport("frontend://bower_components/vaadin-button/src/vaadin-button.html")
 public abstract class GeneratedVaadinButton<R extends GeneratedVaadinButton<R>>
         extends Component
-        implements HasStyle, HasClickListeners<R>, HasText, Focusable<R> {
+        implements HasStyle, ClickNotifier, HasText, Focusable<R> {
 
     /**
      * <p>

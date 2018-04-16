@@ -15,8 +15,8 @@
  */
 package com.vaadin.flow.component.button.demo;
 
+import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.HasClickListeners.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
@@ -139,13 +139,13 @@ public class ButtonView extends DemoView {
 
         addCard("Disabled button", button);
         button.addClickListener(evt -> message.setText("Button "
-                + evt.getSource().getText()
+                + ((Button) evt.getSource()).getText()
                 + " was clicked, but the button is disabled and this shouldn't happen!"));
         button.setId("disabled-button");
     }
 
-    private void showButtonClickedMessage(ClickEvent<Button> evt) {
-        Button source = evt.getSource();
+    private void showButtonClickedMessage(ClickEvent evt) {
+        Button source = (Button) evt.getSource();
         source.getParent()
                 .ifPresent(parent -> parent.getElement().insertChild(
                         parent.getElement().getChildCount() - 2,
