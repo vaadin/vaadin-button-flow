@@ -30,16 +30,16 @@ public class TemplateButtonIT extends AbstractComponentIT {
     public void setText_overridesAllContent() {
         open();
 
-        waitForElementPresent(By.id("button"));
+        WebElement template = findElement(By.id("button-template"));
 
-        WebElement button = findElement(By.id("button"));
+        WebElement button = findInShadowRoot(template, By.id("button")).get(0);
         Assert.assertTrue("Button should have displayed", button.isDisplayed());
         Assert.assertEquals("Button should contain caption", "Template caption",
                 button.getText());
 
         button.click();
 
-        button = findElement(By.id("button"));
+        button = findInShadowRoot(template, By.id("button")).get(0);
 
         Assert.assertEquals("Button caption should only be the server side caption", "clicked",
                 button.getText());
