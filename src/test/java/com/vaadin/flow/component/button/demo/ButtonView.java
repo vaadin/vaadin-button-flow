@@ -156,7 +156,8 @@ public class ButtonView extends DemoView {
         addVariantsDemo(Button::new,
                 GeneratedVaadinButton::addThemeVariants,
                 GeneratedVaadinButton::removeThemeVariants,
-                ButtonVariant::getVariantName, ButtonVariant.LUMO_PRIMARY);
+                ButtonVariant::getVariantName, ButtonVariant.LUMO_SMALL,
+                ButtonVariant.LUMO_PRIMARY);
     }
 
     private void showButtonClickedMessage(ClickEvent<Button> evt) {
