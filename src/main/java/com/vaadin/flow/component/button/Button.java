@@ -365,7 +365,7 @@ public class Button extends GeneratedVaadinButton<Button>
      *
      * @see Button#removeAll()
      */
-    protected void removeAll(Element... exclusion) {
+    private void removeAll(Element... exclusion) {
         Set<Element> toExclude = Stream.of(exclusion)
                 .collect(Collectors.toSet());
         Predicate<Element> filter = toExclude::contains;
