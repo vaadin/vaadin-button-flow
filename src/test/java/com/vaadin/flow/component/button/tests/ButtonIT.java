@@ -138,17 +138,14 @@ public class ButtonIT extends ComponentDemoTest {
                 "The button should not contain the 'disabled' attribute",
                 button.getAttribute("disabled") == null);
 
-        scrollIntoViewAndClick(button);
-        button.click();
-        button.click();
-        button.click();
-
+        scrollToElement(button);
+        executeScript("arguments[0].click();arguments[0].click();arguments[0].click();arguments[0].click();", button);
 
         // Check that button is disabled
         String disabled = button.getAttribute("disabled");
         Assert.assertTrue(
                 "The button should contain the 'disabled' attribute after click",
-                disabled != null && (disabled.equals("") || disabled.equals("true")));
+                disabled != null);
 
         String singleClick = "Button Disabled on click was clicked and enabled state was changed to false receiving 1 clicks";
         Assert.assertEquals(
@@ -187,7 +184,7 @@ public class ButtonIT extends ComponentDemoTest {
         disabled = button.getAttribute("disabled");
         Assert.assertTrue(
                 "The button should contain the 'disabled' attribute after click",
-                disabled != null && (disabled.equals("") || disabled.equals("true")));
+                disabled != null);
 
         Assert.assertEquals("Button should have gotten 1 click and become disabled.",
                 singleClick,
@@ -208,7 +205,7 @@ public class ButtonIT extends ComponentDemoTest {
         String disabled = button.getAttribute("disabled");
         Assert.assertTrue(
                 "The button should contain the 'disabled' attribute after click",
-                disabled != null && (disabled.equals("") || disabled.equals("true")));
+                disabled != null);
 
 
         layout.findElement(By.id("enable-button")).click();
