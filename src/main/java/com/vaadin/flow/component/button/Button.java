@@ -324,6 +324,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * 
      * @deprecated use {@link #fireClick()} or {@link #fireClickInClient()} instead.
      */
+    @Deprecated
     public void click() {
         fireEvent(new ClickEvent<>(this, false, 0,0,0,0,0,0,false,false,false,false));
     }
