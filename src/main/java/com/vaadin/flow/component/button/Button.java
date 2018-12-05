@@ -321,8 +321,25 @@ public class Button extends GeneratedVaadinButton<Button>
     /**
      * Executes a click on this button at the client-side. Calling this method
      * behaves exactly the same as if the user would have clicked on the button.
+     * 
+     * @deprecated use {@link #fireClick()} or {@link #fireClickInClient()} instead.
      */
     public void click() {
+        fireEvent(new ClickEvent<>(this, false, 0,0,0,0,0,0,false,false,false,false));
+    }
+    
+    /**
+     * Executes all click listeners directly on the server side.
+     */
+    public void fireClick() {
+        fireEvent(new ClickEvent<>(this, false, 0,0,0,0,0,0,false,false,false,false));
+    }
+
+    /**
+     * Executes a click on this button at the client-side. Calling this method
+     * behaves the same as if the user would have clicked on the button.
+     */
+    public void fireClickInClient() {
         getElement().callFunction("click");
     }
 

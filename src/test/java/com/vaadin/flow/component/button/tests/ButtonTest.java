@@ -15,6 +15,7 @@
  */
 package com.vaadin.flow.component.button.tests;
 
+import com.helger.commons.mutable.MutableBoolean;
 import java.util.function.Predicate;
 
 import org.junit.Assert;
@@ -221,6 +222,19 @@ public class ButtonTest {
 
         button.setText("bar");
         Assert.assertEquals("prefix", icon.getElement().getAttribute("slot"));
+    }
+
+    @Test
+    public void testFireClick() {
+        button = new Button();
+        MutableBoolean clicked = new MutableBoolean(false);
+        button.addClickListener(e-> {
+            clicked.set(true);
+        });
+        
+        Assert.assertFalse(clicked.booleanValue());
+        button.fireClick();
+        Assert.assertTrue(clicked.booleanValue());
     }
 
     private void assertOnlyChildIsText() {
