@@ -233,8 +233,8 @@ public class ButtonTest {
 
         Set<String> themeNames = button.getThemeNames();
         Assert.assertTrue(themeNames.contains("icon"));
-        Assert.assertTrue(
-                themeNames.contains(ButtonVariant.LUMO_SUCCESS.toString()));
+        Assert.assertTrue(themeNames
+                .contains(ButtonVariant.LUMO_SUCCESS.getVariantName()));
     }
 
     @Test
@@ -245,8 +245,8 @@ public class ButtonTest {
 
         Set<String> themeNames = button.getThemeNames();
         Assert.assertTrue(themeNames.contains("icon"));
-        Assert.assertTrue(
-                themeNames.contains(ButtonVariant.LUMO_SUCCESS.toString()));
+        Assert.assertTrue(themeNames
+                .contains(ButtonVariant.LUMO_SUCCESS.getVariantName()));
     }
 
     @Test
@@ -286,13 +286,8 @@ public class ButtonTest {
     }
 
     private void assertButtonHasThemeAttribute(String theme) {
-        if (theme == null) {
-            Assert.assertFalse(
-                    button.getElement().hasAttribute(THEME_ATTRIBUTE));
-        } else {
-            Assert.assertEquals(theme,
-                    button.getElement().getAttribute(THEME_ATTRIBUTE));
-        }
+        Assert.assertEquals(theme == null,
+                !button.getThemeNames().contains(theme));
     }
 
     private void assertIconBeforeText() {
