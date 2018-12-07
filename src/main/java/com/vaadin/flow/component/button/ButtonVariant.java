@@ -20,8 +20,8 @@ import javax.annotation.Generated;
 /**
  * Set of theme variants applicable for {@code vaadin-button} component.
  */
-@Generated({ "Generator: com.vaadin.generator.ComponentGenerator#1.1-SNAPSHOT",
-        "WebComponent: Vaadin.ButtonElement#2.1.0", "Flow#1.1-SNAPSHOT" })
+@Generated({ "Generator: com.vaadin.generator.ComponentGenerator#1.2-SNAPSHOT",
+        "WebComponent: Vaadin.ButtonElement#2.1.0", "Flow#1.2-SNAPSHOT" })
 public enum ButtonVariant {
     LUMO_SMALL("small"), LUMO_LARGE("large"), LUMO_TERTIARY(
             "tertiary"), LUMO_TERTIARY_INLINE("tertiary-inline"), LUMO_PRIMARY(
@@ -44,10 +44,5 @@ public enum ButtonVariant {
      */
     public String getVariantName() {
         return variant;
-    }
-
-    @Override
-    public String toString() {
-        return getVariantName();
     }
 }
