@@ -141,19 +141,19 @@ public class ButtonTest {
     @Test
     public void updatingThemeAttribute() {
         button = new Button();
-        assertButtonHasThemeAttribute(null);
+        assertButtonHasNoThemeAttribute();
 
         button.setIcon(new Icon());
         assertButtonHasThemeAttribute(THEME_ATTRIBUTE_ICON);
 
         button.setText("foo");
-        assertButtonHasThemeAttribute(null);
+        assertButtonHasNoThemeAttribute();
 
         button.setIcon(null);
-        assertButtonHasThemeAttribute(null);
+        assertButtonHasNoThemeAttribute();
 
         button = new Button("foo", new Icon());
-        assertButtonHasThemeAttribute(null);
+        assertButtonHasNoThemeAttribute();
 
         button.setText("");
         assertButtonHasThemeAttribute(THEME_ATTRIBUTE_ICON);
@@ -286,8 +286,12 @@ public class ButtonTest {
     }
 
     private void assertButtonHasThemeAttribute(String theme) {
-        Assert.assertEquals(theme == null,
-                !button.getThemeNames().contains(theme));
+        Assert.assertTrue("Expected " + theme + " to be in the theme attribute",
+                button.getThemeNames().contains(theme));
+    }
+
+    private void assertButtonHasNoThemeAttribute() {
+        Assert.assertNull(button.getElement().getAttribute("theme"));
     }
 
     private void assertIconBeforeText() {
