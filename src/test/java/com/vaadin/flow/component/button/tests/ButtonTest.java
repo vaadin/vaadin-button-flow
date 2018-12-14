@@ -236,7 +236,7 @@ public class ButtonTest {
         });
         
         Assert.assertFalse(clicked.booleanValue());
-        button.fireClick();
+        button.click();
         Assert.assertTrue(clicked.booleanValue());
     }
     
