@@ -64,11 +64,27 @@ public class ButtonTest {
     }
 
     @Test
+    public void vaadinIconCtor() {
+        VaadinIcon vaadinIcon = VaadinIcon.VAADIN_H;
+        button = new Button(vaadinIcon);
+        Assert.assertEquals("", button.getText());
+        Assert.assertEquals(vaadinIcon.create().getElement().getOuterHTML(), button.getIcon().getElement().getOuterHTML());
+    }
+
+    @Test
     public void textAndIconCtor() {
         Icon icon = new Icon();
         button = new Button("foo", icon);
         Assert.assertEquals("foo", button.getText());
         Assert.assertEquals(icon, button.getIcon());
+    }
+
+    @Test
+    public void textAndVaadinIconCtor() {
+        VaadinIcon vaadinIcon = VaadinIcon.VAADIN_H;
+        button = new Button("foo", vaadinIcon);
+        Assert.assertEquals("foo", button.getText());
+        Assert.assertEquals(vaadinIcon.create().getElement().getOuterHTML(), button.getIcon().getElement().getOuterHTML());
     }
 
     @Test
@@ -78,6 +94,15 @@ public class ButtonTest {
         });
         Assert.assertEquals("foo", button.getText());
         Assert.assertEquals(icon, button.getIcon());
+    }
+
+    @Test
+    public void textVaadinIconAndEventCtor() {
+        VaadinIcon vaadinIcon = VaadinIcon.VAADIN_H;
+        button = new Button("foo", vaadinIcon, event -> {
+        });
+        Assert.assertEquals("foo", button.getText());
+        Assert.assertEquals(vaadinIcon.create().getElement().getOuterHTML(), button.getIcon().getElement().getOuterHTML());
     }
 
     @Test
@@ -92,6 +117,21 @@ public class ButtonTest {
         Assert.assertNull(button.getIcon());
         Assert.assertFalse(
                 button.getChildren().anyMatch(child -> child.equals(icon)));
+    }
+
+    @Test
+    public void setVaadinIcon() {
+        button = new Button("foo", new Icon());
+
+        VaadinIcon vaadinIcon = VaadinIcon.VAADIN_H;
+        button.setVaadinIcon(vaadinIcon);
+        Assert.assertEquals(vaadinIcon.create().getElement().getOuterHTML(), button.getIcon().getElement().getOuterHTML());
+
+        button.setIcon(null);
+        Assert.assertNull(button.getIcon());
+        String iconOuterHTML = vaadinIcon.create().getElement().getOuterHTML();
+        Assert.assertFalse(
+                button.getChildren().anyMatch(child -> child.getElement().getOuterHTML().equals(iconOuterHTML)));
     }
 
     @Test(expected = IllegalArgumentException.class)
