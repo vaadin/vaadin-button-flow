@@ -26,6 +26,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HasEnabled;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.shared.Registration;
@@ -81,6 +82,19 @@ public class Button extends GeneratedVaadinButton<Button>
     }
 
     /**
+     * Convenience constructor for creating a new Button
+     * with an Icon inside
+     *
+     * @param vaadinIcon
+     *            the icon inside the button
+     * @see #Button(Component)
+     *
+     */
+    public Button(VaadinIcon vaadinIcon) {
+        this(vaadinIcon.create());
+    }
+
+    /**
      * Creates a button with a text and an icon inside.
      * <p>
      * Use {@link #setIconAfterText(boolean)} to change the order of the text
@@ -96,6 +110,23 @@ public class Button extends GeneratedVaadinButton<Button>
     public Button(String text, Component icon) {
         setIcon(icon);
         setText(text);
+    }
+
+    /**
+     * Convenience constructor for creating a new Buton
+     * with text and an icon inside
+     * <p>
+     * Use {@link #setIconAfterText(boolean)} to change the order of the text
+     * and the icon.
+     *
+     * @param text
+     *            the text inside the button
+     * @param vaadinIcon
+     *            the icon inside the button
+     * @see #Button(String, Component)
+     */
+    public Button(String text, VaadinIcon vaadinIcon) {
+        this(text, vaadinIcon.create());
     }
 
     /**
@@ -131,6 +162,21 @@ public class Button extends GeneratedVaadinButton<Button>
     }
 
     /**
+     * Convenience constructor for creating a Button with an icon
+     * inside and a listener for events
+     *
+     * @param vaadinIcon
+     *            the icon inside the button
+     * @param clickListener
+     *            the event listener for click events
+     * @see #Button(Component, ComponentEventListener)
+     */
+    public Button(VaadinIcon vaadinIcon,
+                  ComponentEventListener<ClickEvent<Button>> clickListener) {
+        this(vaadinIcon.create(), clickListener);
+    }
+
+    /**
      * Create a button with a text, an icon and a listener for click events.
      *
      * @param text
@@ -148,6 +194,23 @@ public class Button extends GeneratedVaadinButton<Button>
         setIcon(icon);
         setText(text);
         addClickListener(clickListener);
+    }
+
+    /**
+     * Convenience constructor which creates a button with a text,
+     * an icon and a listener for click events.
+     *
+     * @param text
+     *            the text inside the button
+     * @param vaadinIcon
+     *            the icon inside the button
+     * @param clickListener
+     *            the event listener for click events
+     * @see #Button(String, Component, ComponentEventListener)
+     */
+    public Button(String text, VaadinIcon vaadinIcon,
+                  ComponentEventListener<ClickEvent<Button>> clickListener) {
+        this(text, vaadinIcon.create(), clickListener);
     }
 
     /**
@@ -252,6 +315,22 @@ public class Button extends GeneratedVaadinButton<Button>
             wrapTextInSpan();
         }
         updateThemeAttribute();
+    }
+
+    /**
+     * Convenience method for setting the given VaadinIcon as the Icon for this Button
+     * <p>
+     * See {@link #setIcon(Component)}
+     * <p>
+     * This method also sets or removes this button's <code>theme=icon</code>
+     * attribute and wraps it's possible text-content in a
+     * <code>span</code>-element for better theming support.
+     *
+     * @param vaadinIcon
+     *            VaadinIcon to be used as an icon, cannot be <code>null</code>
+     */
+    public void setVaadinIcon(VaadinIcon vaadinIcon) {
+        setIcon(vaadinIcon.create());
     }
 
     /**
