@@ -26,6 +26,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HasEnabled;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.HasIconFactory;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.dom.ElementFactory;
@@ -85,13 +86,13 @@ public class Button extends GeneratedVaadinButton<Button>
      * Convenience constructor for creating a new Button
      * with an Icon inside
      *
-     * @param vaadinIcon
+     * @param iconFactory
      *            the icon inside the button
      * @see #Button(Component)
      *
      */
-    public Button(VaadinIcon vaadinIcon) {
-        this(vaadinIcon.create());
+    public Button(HasIconFactory iconFactory) {
+        this(iconFactory.create());
     }
 
     /**
@@ -121,12 +122,12 @@ public class Button extends GeneratedVaadinButton<Button>
      *
      * @param text
      *            the text inside the button
-     * @param vaadinIcon
+     * @param hasIconFactory
      *            the icon inside the button
      * @see #Button(String, Component)
      */
-    public Button(String text, VaadinIcon vaadinIcon) {
-        this(text, vaadinIcon.create());
+    public Button(String text, HasIconFactory hasIconFactory) {
+        this(text, hasIconFactory.create());
     }
 
     /**
@@ -165,15 +166,15 @@ public class Button extends GeneratedVaadinButton<Button>
      * Convenience constructor for creating a Button with an icon
      * inside and a listener for events
      *
-     * @param vaadinIcon
+     * @param iconFactory
      *            the icon inside the button
      * @param clickListener
      *            the event listener for click events
      * @see #Button(Component, ComponentEventListener)
      */
-    public Button(VaadinIcon vaadinIcon,
+    public Button(HasIconFactory iconFactory,
                   ComponentEventListener<ClickEvent<Button>> clickListener) {
-        this(vaadinIcon.create(), clickListener);
+        this(iconFactory.create(), clickListener);
     }
 
     /**
@@ -202,15 +203,15 @@ public class Button extends GeneratedVaadinButton<Button>
      *
      * @param text
      *            the text inside the button
-     * @param vaadinIcon
+     * @param iconFactory
      *            the icon inside the button
      * @param clickListener
      *            the event listener for click events
      * @see #Button(String, Component, ComponentEventListener)
      */
-    public Button(String text, VaadinIcon vaadinIcon,
+    public Button(String text, HasIconFactory iconFactory,
                   ComponentEventListener<ClickEvent<Button>> clickListener) {
-        this(text, vaadinIcon.create(), clickListener);
+        this(text, iconFactory.create(), clickListener);
     }
 
     /**
@@ -326,11 +327,11 @@ public class Button extends GeneratedVaadinButton<Button>
      * attribute and wraps it's possible text-content in a
      * <code>span</code>-element for better theming support.
      *
-     * @param vaadinIcon
+     * @param iconFactory
      *            VaadinIcon to be used as an icon, cannot be <code>null</code>
      */
-    public void setVaadinIcon(VaadinIcon vaadinIcon) {
-        setIcon(vaadinIcon.create());
+    public void setVaadinIcon(HasIconFactory iconFactory) {
+        setIcon(iconFactory.create());
     }
 
     /**
