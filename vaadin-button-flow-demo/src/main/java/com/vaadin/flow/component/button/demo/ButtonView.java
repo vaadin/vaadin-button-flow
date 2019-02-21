@@ -31,6 +31,7 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.demo.DemoView;
 import com.vaadin.flow.router.Route;
 
@@ -177,7 +178,9 @@ public class ButtonView extends DemoView {
         button.addClickShortcut(Key.ENTER);
 
         TextField firstName = new TextField("First name");
+        firstName.setValueChangeMode(ValueChangeMode.EAGER);
         TextField lastName = new TextField("Last name");
+        lastName.setValueChangeMode(ValueChangeMode.EAGER);
         Button clearButton = new Button("Clear fields", event -> {
             firstName.clear();
             lastName.clear();
@@ -190,7 +193,10 @@ public class ButtonView extends DemoView {
                 "shortcut ALT+L works only within the text fields.");
         container.add(paragraph);
         addCard("Button shortcuts", button, container);
-        button.setId("shortcut-button");
+        button.setId("shortcuts-enter-button");
+        clearButton.setId("shortcuts-clear-button");
+        firstName.setId("shortcuts-firstname");
+        lastName.setId("shortcuts-lastname");
     }
 
     private void showButtonClickedMessage(ClickEvent<Button> evt) {

@@ -18,7 +18,9 @@ package com.vaadin.flow.component.button.tests;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.vaadin.flow.demo.ComponentDemoTest;
 
@@ -228,11 +230,47 @@ public class ButtonIT extends ComponentDemoTest {
 
 	}
 
+	@Test
+	public void buttonShortcuts_shortcutsWork() {
+		WebElement button = findElement(By.id("shortcuts-enter-button"));
+
+		scrollToElement(button);
+
+		// invoke shortcut
+		WebElement body = getDriver().findElement(By.xpath("//body"));
+		body.sendKeys(Keys.ENTER);
+
+		waitUntilMessageIsChangedForClickedButton("Has global Enter-shortcut");
+
+		WebElement firstNameField = layout.findElement(By.id("shortcuts-firstname"));
+		WebElement lastNamefield = layout.findElement(By.id("shortcuts" +
+				"-lastname"));
+
+		firstNameField.sendKeys("text 1");
+		lastNamefield.sendKeys("text 2");
+
+		Assert.assertEquals("text 1", firstNameField.getAttribute("value"));
+		Assert.assertEquals("text 2", lastNamefield.getAttribute("value"));
+
+		lastNamefield.sendKeys(Keys.ALT, "l");
+
+		Assert.assertEquals("", firstNameField.getAttribute("value"));
+		Assert.assertEquals("", lastNamefield.getAttribute("value"));
+	}
+
 	private void waitUntilMessageIsChangedForClickedButton(
 			String messageString) {
-		WebElement message = layout.findElement(By.id("buttonMessage"));
-		waitUntil(driver -> message.getText()
-				.equals("Button " + messageString + " was clicked."));
+		final String expected ="Button " + messageString + " was clicked.";
+				WebElement message =
+						layout.findElement(By.id("buttonMessage"));
+
+		WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+		wait.until(driver ->  {
+			String msg = message.getText();
+			wait.withMessage("Expected '" + expected + "' but found '" +
+					(msg != null ? msg : "") + "'!");
+			return expected.equals(msg);
+		});
 	}
 
 	@Test
