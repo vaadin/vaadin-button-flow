@@ -218,9 +218,8 @@ public class ButtonIT extends ComponentDemoTest {
         button.click();
         button.click();
 
-        Assert.assertTrue(
-                "The button should not be disabled after click anymore.",
-                button.getAttribute("disabled") == null);
+		Assert.assertNull("The button should not be disabled after " +
+				"click anymore.", button.getAttribute("disabled"));
 
         String singleClick = "Button Disabled on click was clicked and enabled state was changed to true receiving 2 clicks";
         Assert.assertEquals(
@@ -261,8 +260,7 @@ public class ButtonIT extends ComponentDemoTest {
     private void waitUntilMessageIsChangedForClickedButton(
             String messageString) {
         final String expected ="Button " + messageString + " was clicked.";
-                WebElement message =
-                        layout.findElement(By.id("buttonMessage"));
+        WebElement message = layout.findElement(By.id("buttonMessage"));
 
         WebDriverWait wait = new WebDriverWait(getDriver(), 5);
         wait.until(driver ->  {
