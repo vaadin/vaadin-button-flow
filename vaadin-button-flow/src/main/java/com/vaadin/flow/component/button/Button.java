@@ -26,7 +26,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HasEnabled;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.icon.HasIconFactory;
+import com.vaadin.flow.component.icon.IconFactory;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.dom.ElementFactory;
@@ -91,7 +91,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @see #Button(Component)
      *
      */
-    public Button(HasIconFactory iconFactory) {
+    public Button(IconFactory iconFactory) {
         this(iconFactory.create());
     }
 
@@ -122,12 +122,12 @@ public class Button extends GeneratedVaadinButton<Button>
      *
      * @param text
      *            the text inside the button
-     * @param hasIconFactory
+     * @param IconFactory
      *            the icon inside the button
      * @see #Button(String, Component)
      */
-    public Button(String text, HasIconFactory hasIconFactory) {
-        this(text, hasIconFactory.create());
+    public Button(String text, IconFactory iconFactory) {
+        this(text, IconFactory.create());
     }
 
     /**
@@ -172,7 +172,7 @@ public class Button extends GeneratedVaadinButton<Button>
      *            the event listener for click events
      * @see #Button(Component, ComponentEventListener)
      */
-    public Button(HasIconFactory iconFactory,
+    public Button(IconFactory iconFactory,
                   ComponentEventListener<ClickEvent<Button>> clickListener) {
         this(iconFactory.create(), clickListener);
     }
@@ -209,7 +209,7 @@ public class Button extends GeneratedVaadinButton<Button>
      *            the event listener for click events
      * @see #Button(String, Component, ComponentEventListener)
      */
-    public Button(String text, HasIconFactory iconFactory,
+    public Button(String text, IconFactory iconFactory,
                   ComponentEventListener<ClickEvent<Button>> clickListener) {
         this(text, iconFactory.create(), clickListener);
     }
@@ -330,7 +330,7 @@ public class Button extends GeneratedVaadinButton<Button>
      * @param iconFactory
      *            VaadinIcon to be used as an icon, cannot be <code>null</code>
      */
-    public void setVaadinIcon(HasIconFactory iconFactory) {
+    public void setVaadinIcon(IconFactory iconFactory) {
         setIcon(iconFactory.create());
     }
 
