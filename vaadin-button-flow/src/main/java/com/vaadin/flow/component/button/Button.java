@@ -15,6 +15,9 @@
  */
 package com.vaadin.flow.component.button;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -28,6 +31,8 @@ import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.dom.ElementFactory;
+import com.vaadin.flow.internal.nodefeature.ElementAttributeMap;
+import com.vaadin.flow.internal.nodefeature.NodeFeature;
 import com.vaadin.flow.shared.Registration;
 
 /**
@@ -48,7 +53,7 @@ public class Button extends GeneratedVaadinButton<Button>
     private Registration disableListener = addClickListener(
             buttonClickEvent -> {
                 if (disableOnClick) {
-                    setEnabled(false);
+                    doDisableOnClick();
                 }
             });
 
@@ -472,5 +477,31 @@ public class Button extends GeneratedVaadinButton<Button>
         } else {
             getThemeNames().remove("icon");
         }
+    }
+
+    /*
+     * https://github.com/vaadin/vaadin-button-flow/issues/115 because of the
+     * latency compensation, we need to hack the "diffstate" for the server side
+     * state, so that the disabled value can be reverted during the same
+     * roundtrip.
+     */
+    private void doDisableOnClick() {
+        ElementAttributeMap elementAttributeMap = getElement().getNode()
+                .getFeature(ElementAttributeMap.class);
+        elementAttributeMap.set("disabled", "true");
+        Map<NodeFeature, Serializable> changes = getElement().getNode()
+                .getChangeTracker(elementAttributeMap, () -> null);
+        changes.remove("disabled");
+        setEnabled(false);
+        getUI().ifPresent(
+                ui -> ui.beforeClientResponse(this, executionContext -> {
+                    // in case the disabled status was reverted,
+                    // the client might not update the value in
+                    // case it was that already
+                    if (isEnabled()) {
+                        executionContext.getUI().getPage().executeJavaScript(
+                                "$0.disabled = false;", getElement());
+                    }
+                }));
     }
 }
