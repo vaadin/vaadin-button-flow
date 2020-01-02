@@ -70,4 +70,14 @@ public class TemplateButtonIT extends AbstractComponentIT {
         Assert.assertTrue("Button should not contain a span with text",
                 iconButton.findElements(By.tagName("span")).isEmpty());
     }
+
+    @Test
+    public void setTextShouldChangeTheInitialTemplateText() {
+        open();
+        WebElement template = findElement(By.id("button-template"));
+
+        WebElement buttonElement = findInShadowRoot(template, By.id("text-button"))
+                .get(0);
+        Assert.assertEquals("New text", buttonElement.getText());
+    }
 }

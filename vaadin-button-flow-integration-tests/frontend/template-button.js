@@ -14,6 +14,8 @@ class TemplateButton extends PolymerElement {
             <iron-icon icon="lumo:edit"></iron-icon>
             <span>Template with icon</span>
         </vaadin-button>
+
+        <vaadin-button id="text-button">Initial text</vaadin-button>
 `;
   }
     static get is() {

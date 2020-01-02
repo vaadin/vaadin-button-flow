@@ -36,10 +36,14 @@ public class TemplateButtonPage extends PolymerTemplate<TemplateModel> {
     @Id("icon-button")
     private Button iconButton;
 
+    @Id("text-button")
+    private Button textButton;
+
     public TemplateButtonPage() {
         setId("button-template");
         templateButton
                 .addClickListener(event -> templateButton.setText("clicked"));
         iconButton.addClickListener(event -> iconButton.setText("clicked"));
+        textButton.setText("New text");
     }
 }
