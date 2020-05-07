@@ -56,7 +56,7 @@ public class ButtonView extends DemoView {
 
         message = new Div();
         message.setId("buttonMessage");
-        add(message);
+        getElement().appendChild(message.getElement());
     }
 
     private void createDefaultButton() {
