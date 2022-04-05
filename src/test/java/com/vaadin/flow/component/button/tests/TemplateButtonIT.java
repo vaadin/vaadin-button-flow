@@ -15,6 +15,7 @@
  */
 package com.vaadin.flow.component.button.tests;
 
+import com.vaadin.testbench.TestBenchElement;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -30,9 +31,9 @@ public class TemplateButtonIT extends AbstractComponentIT {
     public void setText_overridesAllContent() {
         open();
 
-        WebElement template = findElement(By.id("button-template"));
+        TestBenchElement template = $("*").id("button-template");
 
-        WebElement button = findInShadowRoot(template, By.id("button")).get(0);
+        WebElement button = template.$("*").id("button");
 
         Assert.assertTrue("Button should have displayed", button.isDisplayed());
         Assert.assertEquals("Button should contain caption", "Template caption",
@@ -40,15 +41,14 @@ public class TemplateButtonIT extends AbstractComponentIT {
 
         button.click();
 
-        button = findInShadowRoot(template, By.id("button")).get(0);
+        button = template.$("*").id("button");
 
         Assert.assertEquals(
                 "Button caption should only be the server side caption",
                 "clicked", button.getText());
 
 
-        WebElement iconButton = findInShadowRoot(template, By.id("icon-button"))
-                .get(0);
+        WebElement iconButton = template.$("*").id("icon-button");
         Assert.assertTrue("Button should have displayed",
                 iconButton.isDisplayed());
         Assert.assertTrue("Button should contain icon.",
@@ -59,8 +59,7 @@ public class TemplateButtonIT extends AbstractComponentIT {
 
         iconButton.click();
 
-        iconButton = findInShadowRoot(template, By.id("icon-button"))
-                .get(0);
+        iconButton = template.$("*").id("icon-button");
 
         Assert.assertEquals(
                 "Icon button should only have server side caption",
